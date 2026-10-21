@@ -1,5 +1,15 @@
-﻿using System.Runtime.CompilerServices;
-using Microsoft.VisualBasic;
+﻿/*
+* Name: Aaron Robinson
+* Course: CSCI 1250, Section 001
+* Assignment: Lab 06, Three Short Problems
+* Date: October 21, 2026
+* Description: A menu that keeps running until the user quits, offering three
+* independent exercises or all three at once. Each exercise
+* practices decisions and one of the four loops.
+*/
+
+
+
 
 int choice = 0;
 Random rng = new Random(4000);
@@ -30,6 +40,8 @@ do
 // a range of numbers that could be inputed
     if (choice == 1 || choice == 4)
     {
+        // Exercise 1
+        System.Console.WriteLine();
         int score = 0;
         System.Console.WriteLine("=== Exercise 1: The Grade Checker ===");
         System.Console.Write("Score: ");
@@ -46,6 +58,7 @@ do
 
         if (score >= 90)
         {
+            // Exercise 2
             System.Console.WriteLine($"{score} earns an A.");
         }
         else if (score >= 80)
@@ -72,6 +85,8 @@ do
 
     if (choice == 2 || choice == 4)
     {
+        // Exercise 3
+        System.Console.WriteLine();
         string doRoll = "y";
         System.Console.WriteLine("=== Exercise 2: The Dice Table ===");
         int count = 0;
@@ -122,6 +137,7 @@ do
 
     if (choice == 3 || choice == 4)
     {
+        System.Console.WriteLine();
         double[] scores = new double[5];
         System.Console.WriteLine("=== Exercise 3: The Score Report ===");
         
@@ -157,6 +173,7 @@ do
 
         average = Convert.ToDouble(total) / scores.Length;
 
+        System.Console.WriteLine();
         System.Console.WriteLine($"Scores entered: {scores.Length}");
         System.Console.WriteLine($"Total: {total}");
         System.Console.WriteLine($"Average: {average}");
@@ -167,7 +184,7 @@ do
 
     }
 
-    
+
 
 
 System.Console.WriteLine();
