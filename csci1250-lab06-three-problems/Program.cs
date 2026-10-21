@@ -76,6 +76,8 @@ do
         System.Console.WriteLine("=== Exercise 2: The Dice Table ===");
         int count = 0;
         int wins = 0;
+
+        // do when is useful because I want an action repeated until a certain input is given
         do
         {
             int roll1 = rng.Next(1, 7);
@@ -120,12 +122,55 @@ do
 
     if (choice == 3 || choice == 4)
     {
-// Exercise 3
-        System.Console.WriteLine("3");
+        double[] scores = new double[5];
+        System.Console.WriteLine("=== Exercise 3: The Score Report ===");
+        
+        //inserts the scores into the array for each slot
+        for (int i = 0; i < scores.Length; i++)
+        {
+            System.Console.Write($"Score {i + 1}: ");
+            scores[i] = Convert.ToDouble(Console.ReadLine());
+        }
+
+        int total = 0;
+        double average = 0;
+        int highest = 0;
+        int passing = 0;
+
+
+        // foreach lets me look at each score in scores and do someting with it.  It is looking at each one and doing something with the numbers
+        foreach (int score in scores)
+        {
+            total += score;
+
+            if (score > highest)
+            {
+                highest = score;
+            }
+
+            if (score >= 60)
+            {
+                passing++;
+            }
+
+        }
+
+        average = Convert.ToDouble(total) / scores.Length;
+
+        System.Console.WriteLine($"Scores entered: {scores.Length}");
+        System.Console.WriteLine($"Total: {total}");
+        System.Console.WriteLine($"Average: {average}");
+        System.Console.WriteLine($"Highest: {highest}");
+        System.Console.WriteLine($"Passing {passing} of {scores.Length}");
+
+
+
     }
 
+    
 
 
+System.Console.WriteLine();
 } while (choice != 5);
 Console.WriteLine("Goodbye.");
 
