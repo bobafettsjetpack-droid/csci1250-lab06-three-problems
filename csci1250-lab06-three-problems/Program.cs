@@ -1,4 +1,8 @@
-﻿int choice = 0;
+﻿using System.Runtime.CompilerServices;
+using Microsoft.VisualBasic;
+
+int choice = 0;
+Random rng = new Random(4000);
 // do while ensures that the menu is presented each time the question is asked, then it gives the out if the choice is 5
 do
 {
@@ -62,11 +66,58 @@ do
         }
     }
 
+
+
+
+
     if (choice == 2 || choice == 4)
     {
-// Exercise 2
-        System.Console.WriteLine("2");
+        string doRoll = "y";
+        System.Console.WriteLine("=== Exercise 2: The Dice Table ===");
+        int count = 0;
+        int wins = 0;
+        do
+        {
+            int roll1 = rng.Next(1, 7);
+            int roll2 = rng.Next(1, 7);
+            int total = roll1 + roll2;
+            System.Console.Write($"Roll {++count}: {roll1} and {roll2}, total {total}. ");
+
+            if (roll1 == 1 && roll2 == 1)
+            {
+                System.Console.Write("Snake eyes.");
+        
+            }
+            else if (total == 7 || total == 11)
+            {
+                System.Console.Write("A winner.");
+                wins +=1;
+            }
+            else if (roll1 == roll2)
+            {
+                System.Console.Write("Doubles!");
+        
+            }
+            System.Console.WriteLine();
+        
+
+
+            //again adding !; because it fixes the error, idk what it actually does
+            System.Console.Write("Roll again? (y/n): ");
+            doRoll = Console.ReadLine()!;
+
+        }while(doRoll.Trim().ToLower() != "n");
+
+        System.Console.WriteLine($"You rolled {count} times and won {wins}.");
+    
+
     }
+
+
+
+
+
+
     if (choice == 3 || choice == 4)
     {
 // Exercise 3
